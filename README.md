@@ -46,9 +46,7 @@ For each training sample:
 
 The model learns to predict the "denoising direction"—the vector field that maps noisy samples back to the data manifold.
 
-$
-\mathcal{L}_\text{FM} = \mathbb{E}_{\mathbf{X}_\text{data}, \tau, \epsilon}\left[ \left\| f_\theta(\mathbf{X}_\tau, \text{context}) - (\epsilon - \mathbf{X}_\text{data}) \right\|^2 \right]
-$
+$$\mathcal{L}_\text{FM} = \mathbb{E}_{\mathbf{X}_\text{data}, \tau, \epsilon}\left[ \left\| f_\theta(\mathbf{X}_\tau, \text{context}) - (\epsilon - \mathbf{X}_\text{data}) \right\|^2 \right]$$
 
 * $f_\theta$: HPSTM-Gen's prediction of the denoising vector, given the noisy input
 * The output is passed through the FK layer to enforce anatomical plausibility
