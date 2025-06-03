@@ -11,8 +11,6 @@ Key features:
 * Optional multi-modal context (vision/language/robot state)
 * Physically plausible sampling and uncertainty estimation
 
----
-
 ## Method
 
 ### 1. **Model Architecture**
@@ -69,8 +67,6 @@ $$
 
 All terms can be weighted based on task priorities.
 
----
-
 ### 3. **Sampling (Inference) Procedure**
 
 To generate a new pose sequence:
@@ -88,15 +84,11 @@ To generate a new pose sequence:
 
 This process is analogous to diffusion/score-based generative models in vision, but tailored to structured, constrained motion data.
 
----
-
 ### 4. **Implementation Notes**
 
 * You can leverage existing diffusion model frameworks (e.g., DiffusionPolicy, π0, Score-based Models) and plug in the HPSTM backbone.
 * The FK layer and bone-length losses are essential for anatomical validity—do not skip them!
 * Sampling step sizes, number of iterations, and noise schedule can be tuned based on downstream requirements.
-
----
 
 ## Getting Started
 
@@ -122,14 +114,11 @@ This process is analogous to diffusion/score-based generative models in vision, 
    * Use `sample.py` to generate new motions given a context
    * Visualize and/or retarget to a robot arm via your pose-mapping module
 
----
 
 ## Acknowledgments
 
 This work extends the HPSTM model ([link to your repo](https://github.com/Qifei-C/HPSTM))
 Inspired by π0, Diffusion Policy, and recent advances in generative robotics.
-
----
 
 ## Contact
 
