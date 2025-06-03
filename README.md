@@ -46,9 +46,9 @@ For each training sample:
 
 The model learns to predict the "denoising direction"—the vector field that maps noisy samples back to the data manifold.
 
-$$
+$
 \mathcal{L}_\text{FM} = \mathbb{E}_{\mathbf{X}_\text{data}, \tau, \epsilon}\left[ \left\| f_\theta(\mathbf{X}_\tau, \text{context}) - (\epsilon - \mathbf{X}_\text{data}) \right\|^2 \right]
-$$
+$
 
 * $f_\theta$: HPSTM-Gen's prediction of the denoising vector, given the noisy input
 * The output is passed through the FK layer to enforce anatomical plausibility
@@ -61,9 +61,9 @@ $$
 
 #### **D. Full Training Objective**
 
-$$
+$
 \mathcal{L} = \mathcal{L}_\text{FM} + \lambda_\text{bone} \mathcal{L}_\text{bone} + \lambda_\text{vel} \mathcal{L}_\text{vel} + \lambda_\text{accel} \mathcal{L}_\text{accel} + \lambda_\text{NLL} \mathcal{L}_\text{NLL}
-$$
+$
 
 All terms can be weighted based on task priorities.
 
@@ -74,9 +74,9 @@ To generate a new pose sequence:
 1. **Initialize** with a pure Gaussian noise sequence: $\mathbf{X}_0 \sim \mathcal{N}(0, I)$
 2. **Iteratively Denoise**: For a chosen number of steps, repeatedly input the current sequence into HPSTM-Gen (optionally with context), and update using the predicted denoising vector:
 
-   $$
+   $
    \mathbf{X}_{k+1} = \mathbf{X}_k + \alpha_k f_\theta(\mathbf{X}_k, \text{context})
-   $$
+   $
 
    where $\alpha_k$ is the step size at iteration $k$
 3. **Manifold Projection**: After each step, pass the output through the FK layer to ensure bone-length and anatomical constraints.
