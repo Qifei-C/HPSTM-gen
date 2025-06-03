@@ -37,7 +37,16 @@ For each training sample:
 * Sample Gaussian noise $\epsilon \sim \mathcal{N}(0, I)$
 * Mix the clean pose sequence $\mathbf{X}_\text{data}$ with noise:
 
-  ![X_tau](https://latex.codecogs.com/svg.image?\mathbf{X}_\tau=\tau\cdot\mathbf{X}_\text{data}&plus;(1-\tau)\cdot\epsilon)
+  <picture>
+  <source
+    media="(prefers-color-scheme: dark)"
+    srcset="https://latex.codecogs.com/svg.image?%5Ccolor%7Bwhite%7D%7B%5Cmathbf%7BX%7D_%5Ctau%3D%5Ctau%5Ccdot%5Cmathbf%7BX%7D_%5Ctext%7Bdata%7D%2B%281-%5Ctau%29%5Ccdot%5Cepsilon%7D"
+  />
+  <img
+    alt="X_τ 公式"
+    src="https://latex.codecogs.com/svg.image?%5Ccolor%7Bblack%7D%7B%5Cmathbf%7BX%7D_%5Ctau%3D%5Ctau%5Ccdot%5Cmathbf%7BX%7D_%5Ctext%7Bdata%7D%2B%281-%5Ctau%29%5Ccdot%5Cepsilon%7D"
+  />
+  </picture>
 
 * The model receives $\mathbf{X}_\tau$ (and optional context) as input
 
