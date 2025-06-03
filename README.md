@@ -1,5 +1,4 @@
 # HPSTM-gen
-generative extension of HPSTM
 
 **HPSTM-Gen** extends the Human Pose Smoothing with Transformer and Manifold Model (HPSTM) into a *generative* model for human pose trajectories.
 Unlike traditional discriminative models that only denoise or smooth existing pose sequences, HPSTM-Gen learns the full distribution of physically plausible trajectories. This enables the model to sample new, diverse, and anatomically valid human motions conditioned on visual, language, or context cues.
