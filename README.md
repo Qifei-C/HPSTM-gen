@@ -37,7 +37,7 @@ For each training sample:
 * Sample Gaussian noise $\epsilon \sim \mathcal{N}(0, I)$
 * Mix the clean pose sequence $\mathbf{X}_\text{data}$ with noise:
 
-  $$\mathbf{X}_\tau = \tau \cdot \mathbf{X}_\text{data} + (1 - \tau) \cdot \epsilon$$
+  $\mathbf{X}_\tau = \tau \cdot \mathbf{X}_\text{data} + (1 - \tau) \cdot \epsilon$
   
 * The model receives $\mathbf{X}_\tau$ (and optional context) as input
 
