@@ -36,7 +36,7 @@ For each training sample:
 * Sample a noise level $\tau \in [0, 1]$
 * Sample Gaussian noise $\epsilon \sim \mathcal{N}(0, I)$
 * Mix the clean pose sequence $\mathbf{X}_\text{data}$ with noise:
-
+  <p align="center">
   <picture>
   <source
     media="(prefers-color-scheme: dark)"
@@ -47,13 +47,14 @@ For each training sample:
     src="https://latex.codecogs.com/svg.image?%5Ccolor%7Bblack%7D%7B%5Cmathbf%7BX%7D_%5Ctau%3D%5Ctau%5Ccdot%5Cmathbf%7BX%7D_%5Ctext%7Bdata%7D%2B%281-%5Ctau%29%5Ccdot%5Cepsilon%7D"
   />
   </picture>
+  </p>
 
 * The model receives $\mathbf{X}_\tau$ (and optional context) as input
 
 #### **B. Flow Matching Loss**
 
 The model learns to predict the "denoising direction"—the vector field that maps noisy samples back to the data manifold.
-
+<p align="center">
 <picture>
   <source
     media="(prefers-color-scheme: dark)"
@@ -64,6 +65,7 @@ The model learns to predict the "denoising direction"—the vector field that ma
     src="https://latex.codecogs.com/svg.image?\color{black}{\mathcal{L}_\text{FM}=\mathbb{E}_{\mathbf{X}_\text{data},\tau,\epsilon}\left[\left\|f_\theta(\mathbf{X}_\tau,\text{context})-(\epsilon-\mathbf{X}_\text{data})\right\|^2\right]}"
   />
 </picture>
+</p>
 
 * $f_\theta$: HPSTM-Gen's prediction of the denoising vector, given the noisy input
 * The output is passed through the FK layer to enforce anatomical plausibility
@@ -75,7 +77,7 @@ The model learns to predict the "denoising direction"—the vector field that ma
 * **Negative Log-Likelihood (NLL)**: If predicting covariance, add NLL of predicted distributions
 
 #### **D. Full Training Objective**
-
+<p align="center">
 <picture>
   <source
     media="(prefers-color-scheme: dark)"
@@ -86,6 +88,7 @@ The model learns to predict the "denoising direction"—the vector field that ma
     src="https://latex.codecogs.com/svg.image?\color{black}{\mathcal{L}=\mathcal{L}_\text{FM}+\lambda_\text{bone}\,\mathcal{L}_\text{bone}+\lambda_\text{vel}\,\mathcal{L}_\text{vel}+\lambda_\text{accel}\,\mathcal{L}_\text{accel}+\lambda_\text{NLL}\,\mathcal{L}_\text{NLL}"
   />
 </picture>
+</p>
 
 
 All terms can be weighted based on task priorities.
@@ -96,7 +99,7 @@ To generate a new pose sequence:
 
 1. **Initialize** with a pure Gaussian noise sequence: $\mathbf{X}_0 \sim \mathcal{N}(0, I)$
 2. **Iteratively Denoise**: For a chosen number of steps, repeatedly input the current sequence into HPSTM-Gen (optionally with context), and update using the predicted denoising vector:
-
+   <p align="center">
    <picture>
    <source
      media="(prefers-color-scheme: dark)"
@@ -107,6 +110,7 @@ To generate a new pose sequence:
       src="https://latex.codecogs.com/svg.image?\color{black}{\mathbf{X}_{k+1}=\mathbf{X}_k+\alpha_k\,f_\theta(\mathbf{X}_k,\text{context})}"
     />
     </picture>
+    </p>
 
 
    where $\alpha_k$ is the step size at iteration $k$
