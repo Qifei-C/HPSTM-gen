@@ -43,7 +43,7 @@ For each training sample:
     srcset="https://latex.codecogs.com/svg.image?%5Ccolor%7Bwhite%7D%7B%5Cmathbf%7BX%7D_%5Ctau%3D%5Ctau%5Ccdot%5Cmathbf%7BX%7D_%5Ctext%7Bdata%7D%2B%281-%5Ctau%29%5Ccdot%5Cepsilon%7D"
   />
   <img
-    alt="X_τ 公式"
+    alt="X_τ"
     src="https://latex.codecogs.com/svg.image?%5Ccolor%7Bblack%7D%7B%5Cmathbf%7BX%7D_%5Ctau%3D%5Ctau%5Ccdot%5Cmathbf%7BX%7D_%5Ctext%7Bdata%7D%2B%281-%5Ctau%29%5Ccdot%5Cepsilon%7D"
   />
   </picture>
